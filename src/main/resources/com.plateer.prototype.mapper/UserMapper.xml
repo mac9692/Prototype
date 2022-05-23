@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.plateer.prototype.mapper.UserMapper">
+    <select id="getUserList" resultType="com.plateer.prototype.vo.Users">
+        SELECT a.userid, a.username, a.rankid, b.rankname
+        FROM users a, ranks b
+        WHERE a.rankid = b.rankid
+        ORDER BY userId DESC
+    </select>
+
+    <select id="countUsers" resultType="Integer">
+        SELECT COUNT(*)
+        FROM users
+    </select>
+
+
+</mapper>
